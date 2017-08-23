@@ -1,0 +1,95 @@
+  - name: start
+    entities:
+      switch.bedroom_lamp: on
+      switch.bedroom_fan: on
+      switch.livingroom_wall_outlet: on
+      switch.livingroom_desk_outlet: on
+      switch.kitchen_outlet: on
+      switch.pc_power: on
+      switch.tv_power: on
+      switch.hyperion: on
+      light.jar_led:
+        state: on
+        rgb_color: [255,255,255]
+      light.bathroom_led:
+        state: on
+        rgb_color: [255,255,255]
+      light.br_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+      light.lr_fireplace_color_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+      light.lr_door_color_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+
+  - name:  shutdown
+    entities:
+      switch.bedroom_lamp: off
+      switch.bedroom_fan: off
+      switch.livingroom_wall_outlet: off
+      switch.livingroom_desk_outlet: off
+      switch.kitchen_outlet: off
+      switch.pc_power: off
+      switch.tv_power: off
+      switch.hyperion: off
+      light.jar_led: off
+      light.bathroom_led: off
+      light.br_lifx: off
+      light.lr_fireplace_color_lifx: off
+      light.lr_door_color_lifx: off
+
+  - name: night_time 
+    entities:
+      switch.bedroom_lamp: on
+      switch.pc_power: on
+      switch.tv_power: on
+      light.br_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+      light.lr_fireplace_color_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+      light.lr_door_color_lifx:
+        state: on
+        brightness: 255
+        color_temp: 233
+        rgb_color: [255,255,255]
+        transition: 2
+
+####ARCHIVED####
+#  - name: blinds open
+#    entities:
+#      switch.bedroom_blinds: on
+#      switch.kitchen_blinds: on
+#      switch.livingroom_blinds: on
+
+#  - name: blinds close
+#    entities:
+#      switch.bedroom_blinds: off
+#      switch.kitchen_blinds: off
+#      switch.livingroom_blinds: off
+
+#  - name: vol up
+#    entities:
+#      script.vol_up: on
+
+#  - name: vol down
+#    entities:
+#      script.vol_down: on

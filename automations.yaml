@@ -1,0 +1,129 @@
+- action:
+  - alias: ''
+    service: script.almost_home
+  alias: Gary Almost Home
+  id: '1501152811156'
+  trigger:
+  - below: '5'
+    entity_id: sensor.google_travel_time__driving
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: device_tracker.bmw
+    state: not_home
+- action:
+  - service: script.driving_gary_stop
+  alias: Driving Stopped
+  id: '1501166479276'
+  trigger:
+  - entity_id: input_select.gary_status
+    from: driving
+    platform: state
+    to: standby
+- action:
+  - alias: ''
+    data:
+      message: /pong
+    service: notify.Voodooville
+  alias: PingPong
+  id: '1501169018962'
+  trigger:
+  - event_data:
+      command: /ping
+    event_type: telegram_command
+    platform: event
+- action:
+  - data:
+      data:
+        location:
+          latitude: '{{states.device_tracker.username_gary.attributes.latitude}}'
+          longitude: '{{ states.device_tracker.username_gary.attributes.longitude}}'
+      message: ''
+      title: Send location
+    service: notify.Voodooville
+  alias: Where Is Gary
+  id: '1501173018449'
+  trigger:
+  - event_data:
+      command: /gary
+    event_type: telegram_command
+    platform: event
+- action:
+  - data: {}
+    service: script.motion_shed
+  alias: Shed Motion
+  id: '1501179012105'
+  trigger:
+  - above: '150'
+    entity_id: sensor.shed_motion
+    platform: numeric_state
+- action:
+  - data:
+      data:
+        location:
+          latitude: '{{states.device_tracker.bmw.attributes.latitude}}'
+          longitude: '{{ states.device_tracker.bmw.attributes.longitude}}'
+      message: Location updated.
+      title: Send location
+    service: notify.Voodooville
+  alias: Where is the car
+  id: '1501256441226'
+  trigger:
+  - event_data:
+      command: /car
+    event_type: telegram_command
+    platform: event
+- action:
+  - data:
+      entity_id: switch.shed_night_vision
+    service: switch.turn_on
+  alias: Shed Light Level Low
+  id: '1501407926698'
+  trigger:
+  - below: '5'
+    entity_id: sensor.shed_light_level
+    platform: numeric_state
+- action:
+  - data:
+      entity_id: switch.shed_night_vision
+    service: switch.turn_off
+  alias: Shed Light Level High
+  id: '1501408127608'
+  trigger:
+  - above: '5'
+    entity_id: sensor.shed_light_level
+    platform: numeric_state
+- action:
+  - data:
+      message: High Number of Criticals
+      title: Causeway Alarm
+    service: notify.Voodooville
+  alias: Causeway Issues
+  condition:
+  - condition: state
+    entity_id: input_select.gary_oncall
+    state: oncall
+  id: '1503408206034'
+  trigger:
+  - above: '10'
+    below: '5000'
+    entity_id: sensor.causeway_critical
+    platform: numeric_state
+    value_template: ''
+- action:
+  - data:
+      message: High Number of Criticals
+      title: Causeway Alarm
+    service: notify.Voodooville
+  alias: Causeway Down
+  condition:
+  - condition: state
+    entity_id: input_select.gary_oncall
+    state: oncall
+  id: '1503419361462'
+  trigger:
+  - above: '10'
+    below: '6000'
+    entity_id: sensor.causeway_down
+    platform: numeric_state
+    value_template: ''

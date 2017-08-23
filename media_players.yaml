@@ -1,0 +1,14 @@
+####MEDIA PLAYERS####
+#- platform: universal
+#  name: Living Room Media
+#  children:
+#    - media_player.osmc
+#    - media_player.chromecast
+#  commands:
+#    turn_on:
+#       service: switch.turn_on
+#       data: switch.tv_power
+  - platform: samsungtv
+    host: 192.168.1.50
+    name: VoodooTV
+    mac: f8:77:b8:9c:a7:18

@@ -1,0 +1,17 @@
+- platform: pushbullet
+  api_key: !secret pushbullet_api
+- name: email
+  platform: smtp
+  server: smtp.googlemail.com
+  port: 587
+  timeout: 15
+  sender: !secret gmail
+  starttls: 1
+  username: !secret gmail
+  password: !secret gmail_pass
+  recipient:
+   - !secret email1
+  sender_name: Motion Detection
+- name: Voodooville
+  platform: telegram
+  chat_id: !secret telegram_chat3

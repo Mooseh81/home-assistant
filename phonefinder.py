@@ -1,0 +1,2 @@
+import requests
+requests.get('https://autoremotejoaomgcd.appspot.com/sendmessage?key=APA91bFi2jtwQnvE5uHy1_uSkYHmxdNTv2PXo_izH22sePAlsxIcmbuFpkNgTdcMVhpE7lvy6Gx6a7bqw5H4AwarwVnEzKAJTug05LF9SJ0ZHsSD4vpQ-nHeRMAu0gJVR_2hy9IiynC-&message=FindPhone')

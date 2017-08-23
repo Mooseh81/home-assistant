@@ -1,0 +1,16 @@
+####PRESENCE BASED####
+#- !include automation/car_finder_gary.yaml
+#- !include automation/car_finder_gary_update_location.yaml
+#- !include automation/driving_gary_almost_home.yaml
+
+####NOTIFICATION####
+#- !include automation/update_availible.yaml
+#- !include automation/owntracks_refresh.yaml
+#- !include automation/arrived_gary_work.yaml
+
+####SENSOR BASED####
+- !include automation/driving_gary_start.yaml
+- !include automation/driving_gary_stop.yaml
+#- !include automation/heating.yaml
+#- !include automation/motion.yaml
+- !include automation/lightdimming.yaml

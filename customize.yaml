@@ -1,0 +1,70 @@
+####MQTT TASKER####
+     input_select.gary_status:
+        friendly_name: "Gary's Status"
+     sensor.eta_gary:
+        icon: mdi:map
+        friendly_name: "Gary's ETA"
+     sensor.destination_gary:
+        icon: mdi:map-marker
+        friendly_name: "Gary's Destination"
+     sensor.gary_battery:
+        icon: mdi:battery
+        friendly_name: "Gary's Battery"
+####MISC####
+     sensor.date__time:
+        icon: mdi:calendar-clock
+     sensor.cpu_use:
+        icon: mdi:speedometer
+     sensor.ram_free:
+        icon: mdi:poll
+     sensor.disk_free_home:
+        icon: mdi:folder
+        friendly_name: "SD Free"
+     sensor.last_boot:
+        icon: mdi:clock-start
+     sensor.speedtest_ping:
+        icon: mdi:clock
+        friendly_name: "Ping"
+     sensor.speedtest_download:
+        icon: mdi:arrow-down
+        friendly_name: "Download"
+     sensor.speedtest_upload:
+        icon: mdi:arrow-up
+        friendly_name: "Upload"
+
+########CUSTOMIZE SENSORS########
+####WEATHER####
+     sensor.dark_sky_cloud_coverage:
+        friendly_name: Cloud Coverage
+        icon: mdi:cloud
+     sensor.dark_sky_humidity:
+        friendly_name: Outdoor
+        icon: mdi:water
+     sensor.dark_sky_pressure:
+        friendly_name: Barometric Pressure
+        icon: mdi:nature
+     sensor.dark_sky_temperature:
+        icon: mdi:thermometer
+        friendly_name: Outdoor
+     sensor.dark_sky_wind_speed:
+        icon: mdi:weather-windy
+        friendly_name: Wind Speed
+     sensor.dark_sky_summary:
+        friendly_name: Condition
+     sensor.dark_sky_ozone:
+        friendly_name: Ozone
+     sensor.dark_sky_precip_probability:
+        friendly_name: Precipitation Probability
+     sensor.dark_sky_precip:
+        friendly_name: Precipitation Type
+     sensor.dark_sky_precip_intensity:
+        friendly_name: Precipitation Intensity
+     sensor.dark_sky_visibility:
+        friendly_name: Visibility
+     sensor.dark_sky_nearest_storm:
+        friendly_name: Nearest Storm
+     sensor.dark_sky_wind_bearing:
+        friendly_name: Wind Bearing
+        icon: mdi:compass
+     sensor.dark_sky_apparent_temperature:
+        friendly_name: Real Feel

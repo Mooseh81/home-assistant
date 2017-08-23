@@ -1,0 +1,145 @@
+logger:
+  default: info
+
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 88
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize.yaml
+
+zone:
+  name: Work
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  radius: 250
+  icon: mdi:worker
+
+zone 2:
+  name: Tescos
+  latitude: !secret tesco_latitude
+  longitude:  !secret tesco_longitude
+  radius: 50
+  icon: mdi:basket
+
+media_player:
+  - platform: plex
+    host: !secret plex_host
+    port: 32400
+    name: Plex
+    username: !secret email1
+    password: !secret plex_password
+    include_non_clients: true
+  - platform: plexclients
+    host: !secret plex_host
+    port: 32400
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+  - platform: ps4
+    host: !secret ps4_ip
+
+alarm_control_panel:
+  - platform: manual
+
+# Text to speech
+tts:
+  platform: google
+
+android_ip_webcam:
+  - host: !secret android_cam_ip
+    name: Shed
+    scan_interval: 1
+    sensors:
+      - audio_connections
+      - battery_level
+      - battery_temp
+      - battery_voltage
+      - light
+      - motion
+      - pressure
+    switches:
+      - exposure_lock
+      - ffc
+      - focus
+      - gps_active
+      - night_vision
+      - overlay
+      - torch
+      - whitebalance_lock
+      - video_recording
+ifttt:
+  key: !secret iftt_key
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret telegram_chat1
+      - !secret telegram_chat2
+      - !secret telegram_chat3
+
+#microsoft_face:
+#  api_key: !secret microsoft_face
+#  azure_region: westcentralus
+
+#image_processing:
+# - platform: microsoft_face_identify
+#   group: family
+#   source:
+#    - entity_id: camera.shed
+
+device_tracker:
+  - platform: luci
+    host: !secret luci_host
+    username: root
+    password: !secret luci_password
+
+mqtt:
+
+camera:
+  - platform: mjpeg
+    mjpeg_url: !secret camera_url
+
+climate:
+  platform: heatmiserneo
+  host: !secret climate_host
+  port: 4242
+  debug: True
+
+config:
+
+####################################################
+#                                                  #
+#                     Includes                     #
+#                                                  #
+####################################################
+http: !include httpconfig.yaml
+sensor: !include sensors.yaml
+alexa: !include alexa.yaml
+automation: !include automations.yaml
+input_select: !include input_select.yaml
+notify: !include notify.yaml
+group: !include groups.yaml
+#input_boolean: !include input_boolean.yaml
+script: !include scripts.yaml
+shell_command: !include shell_commands.yaml
+input_slider: !include input_slider.yaml
+switch: !include switches.yaml
+
+####################################################
+#                                                  #
+#                     Enables                      #
+#                                                  #
+####################################################
+history:
+discovery:
+sun:
+conversation:
+logbook:
+frontend:
+recorder:
+  purge_days: 90
+updater:

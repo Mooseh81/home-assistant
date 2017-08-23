@@ -1,0 +1,217 @@
+default_view:
+  view: true
+  entities:
+  - camera.shed
+  - automation.shed_motion
+  - group.household
+  - group.downloads
+  name: default_view
+surveillance:
+  name: surveillance
+  view: true
+  entities:
+  - group.shed
+  - camera.mjpeg_camera
+environment:
+  name: environment
+  view: true
+  entities:
+  - group.weather
+  - group.heatmiser
+  - group.boudoir
+  - group.living_room
+  - group.dining_room
+  - group.hunters_room
+  - group.theas_room
+  - group.outdoor_timer_light
+Family:
+  name: family
+  view: true
+  entities:
+  - group.gary
+  - group.household
+  - group.BMWcar
+Work:
+  name: work
+  view: true
+  entities:
+  - sensor.causeway_critical
+  - sensor.causeway_down
+  - input_select.gary_oncall
+  - automation.causeway_issues
+  - automation.causeway_down
+Household:
+- device_tracker.username_gary
+- sensor.google_geocode
+- device_tracker.ac37434ec0b0
+media:
+  name: media
+  view: true
+  entities:
+  - group.devices
+  - group.downloads
+  - group.sonarr
+  - sensor.radarr
+  - sensor.plex
+  - sensor.sonarr_commands
+  - sensor.sonarr_queue
+  - sensor.sonarr_upcoming
+  - sensor.sonarr_wanted
+  - media_player.tv_ue49ku6400
+  - media_player.spotify
+  - group.playstation4
+  - media_player.playstation_4
+  - media_player.voodoo_tv_ue49ku6400
+Sabnzbd:
+  view: true
+  name: Sabnzbd
+  entities:
+  - sensor.sabnzbd_status
+  - sensor.sabnzbd_speed
+  - sensor.sabnzbd_queue
+  - sensor.sabnzbd_left
+  - sensor.sabnzbd_disk
+  - sensor.sabnzbd_disk_free
+ha_status:
+  name: HA Controls
+  view: true
+  entities:
+  - group.speedtest
+Automations:
+  name: Automations
+  view: true
+  entities:
+  - group.AutomationSwitches
+AutomationSwitches:
+- automation.driving_stopped
+- automation.gary_almost_home
+- automation.pingpong
+- automation.shed_light_level_low
+- automation.shed_light_level_high
+- automation.shed_motion
+- automation.where_is_gary
+- automation.where_is_the_car
+Downloads:
+- sensor.sabnzbd_status
+- sensor.sabnzbd_speed
+- sensor.sabnzbd_queue
+- sensor.sabnzbd_left
+- sensor.sabnzbd_disk
+- sensor.sabnzbd_disk_free
+Sonarr:
+- sensor.sonarr_queue
+- sensor.sonarr_upcoming
+- sensor.sonarr_wanted
+Gary:
+- script.car_finder_gary_notify
+- input_select.gary_status
+- input_select.gary_destination
+- sensor.google_travel_time__driving
+- sensor.car_driving_gary
+- sensor.destination_gary
+- sensor.eta_gary
+- sensor.gary_battery
+- script.almost_home
+
+- sensor.google_geocode
+Boudoir:
+- climate.boudoir
+- sensor.boudoir_current_temperature
+Living Room:
+- climate.living_room
+- sensor.living_room_current_temperature
+- light.livingroomleft
+- light.livingroomright
+Hunters Room:
+- climate.hunters_room
+- sensor.hunters_room_current_temperature
+Dining Room:
+- climate.dining_room
+- sensor.dining_room_current_temperature
+Theas Room:
+- climate.theas_bedroom
+- sensor.theas_room_current_temperature
+heatmiser:
+- climate.boudoir
+- climate.dining_room
+- climate.hunters_room
+- climate.living_room
+- climate.theas_bedroom
+shed:
+- camera.shed
+- switch.shed_exposure_lock
+- switch.shed_focus
+- switch.shed_frontfacing_camera
+- switch.shed_gps_active
+- switch.shed_night_vision
+- switch.shed_overlay
+- switch.shed_torch
+- switch.shed_video_recording
+- switch.shed_white_balance_lock
+- sensor.shed_battery_level
+- sensor.shed_battery_temperature
+- sensor.shed_light_level
+- sensor.shed_motion
+Speedtest:
+- sensor.speedtest_ping
+- sensor.speedtest_download
+- sensor.speedtest_upload
+Weather:
+- sensor.date__time
+- sensor.dark_sky_icon
+- sensor.dark_sky_condition
+- sensor.dark_sky_daily_summary
+- sun.sun
+- sensor.dark_sky_cloud_coverage
+- sensor.dark_sky_dew_point
+- sensor.dark_sky_ozone
+- sensor.dark_sky_precip_type
+- sensor.dark_sky_precip_probability
+- sensor.dark_sky_precip
+- sensor.dark_sky_precip_intensity
+- sensor.dark_sky_pressure
+- sensor.dark_sky_visibility
+- sensor.dark_sky_nearest_storm_distance
+- sensor.dark_sky_wind_bearing
+- sensor.dark_sky_wind_speed
+Temperature:
+- sensor.dark_sky_temperature
+- sensor.dark_sky_apparent_temperature
+Automatic Lights Outside Dummy:
+  name: AutomatiC Lights Outside Dummy
+Automatic Lights Outside:
+  name: Automatic Lights Outside
+  entities:
+  - light.front_walkway_level
+Outdoor Timer Light:
+  name: Outdoor Lights Timer Settings
+  control: hidden
+  entities:
+  - automation.auto_outdoor_light
+  - input_slider.auto_outdoor_light_on_level
+  - input_slider.auto_outdoor_light_offset_on
+  - sensor.auto_outdoor_light_start
+  - input_slider.auto_outdoor_light_dim_level
+  - input_slider.auto_outdoor_light_offset_dim
+  - sensor.auto_outdoor_light_dim
+  - input_slider.auto_outdoor_light_offset_off
+  - sensor.auto_outdoor_light_stop
+Playstation4:
+  - sensor.current_game
+  - switch.playstation4
+BMWcar:
+  name: BMW
+  entities:
+    - sensor.last_updated
+    - sensor.fuel_left
+    - sensor.distance_to_empty
+    - sensor.fuel_price
+    - sensor.km_per_liter
+    - sensor.last_drive_duration
+    - sensor.top_speed
+    - sensor.total_km
+alarm_control:
+    name: Alarm Control
+    view: true
+    entities:
+      - alarm_control_panel.ha_alarm

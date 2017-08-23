@@ -1,0 +1,3 @@
+  record_shed: '/config/record_motion.sh'
+  restart_ha: service hass restart &
+  gary_finder: 'python /root/.homeassistant/phonefinder.py'

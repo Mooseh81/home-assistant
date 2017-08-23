@@ -1,0 +1,12 @@
+####Booleans####
+input_boolean:
+  restart_ha:
+    name: Restart Home Assistant
+    initial: off
+    icon: mdi:power
+
+input_boolean:
+  motion_detection:
+    name: Motion Detection
+    initial: on
+    icon: mdi:power

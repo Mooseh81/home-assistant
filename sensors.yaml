@@ -1,0 +1,209 @@
+  - platform: yr
+  - platform: torque
+    email: gary.black@theblacks.co.uk
+  - platform: google_travel_time
+    api_key: !secret google_travel_api
+    origin: device_tracker.username_gary
+    destination: !secret home_town
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  - platform: sabnzbd
+    host: !secret sab_ip
+    port: 8080
+    api_key: !secret sab_api
+    monitored_variables:
+      - 'current_status'
+      - 'speed'
+      - 'queue_size'
+      - 'queue_remaining'
+      - 'disk_size'
+      - 'disk_free'
+  - platform: google_geocode
+    origin: device_tracker.username_gary
+#sensor 2
+  - platform: time_date
+    display_options:
+    - "date_time"
+#sensor 9
+  - platform: systemmonitor
+    resources:
+    - type: disk_free
+      arg: /config
+    - type: memory_free
+    - type: processor_use
+    - type: last_boot
+
+  - platform: command_line
+    name: current game
+    command: ps4-waker search | grep -w "running-app-name" | cut -c 24- | rev | cut -c 3-  | rev
+    scan_interval: 60
+
+#Darksky
+  - platform: darksky
+    api_key: !secret darksky_api
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+      - ozone
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - temperature_max
+      - temperature_min
+      - apparent_temperature_max
+      - apparent_temperature_min
+      - precip_intensity_max
+
+  - platform: time_date
+    display_options:
+      - 'time'
+
+  - platform: plex
+    host: !secret plex_external_host
+    port: 32402
+    username:  !secret email1
+    password: !secret plex_password
+
+  - platform: sonarr
+    api_key: !secret sonarr_api
+    host: !secret sonarr_ip
+    monitored_conditions:
+      - upcoming
+      - wanted
+      - queue
+      - commands
+    days: 2
+
+  - platform: radarr
+    api_key: !secret radarr_api
+    host: !secret radarr_ip
+    port: 7878
+    monitored_conditions:
+      - upcoming
+      - movies
+    days: 2
+
+  - platform: template
+    sensors:
+      auto_outdoor_light_start:
+        friendly_name: 'Lights on at '
+        value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) + (states("input_slider.auto_outdoor_light_offset_on") | int)  * 60)  | timestamp_custom("%I:%M %p") }}'
+      auto_outdoor_light_dim:
+        friendly_name: 'Lights dim at '
+        value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_midnight) + (states("input_slider.auto_outdoor_light_offset_dim") | int)  * 60)  | timestamp_custom("%I:%M %p") }}'
+      auto_outdoor_light_stop:
+        friendly_name: 'Lights off at '
+        value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_rising) - (states("input_slider.auto_outdoor_light_offset_off") | int)  * 60)  | timestamp_custom("%I:%M %p") }}'
+# The following sensors are used to control the timing logic
+      outdoor_light_on_unix_time:
+        friendly_name: 'Unix Time On'
+        value_template: '{{(as_timestamp(states.sun.sun.attributes.next_rising) + (states("input_slider.auto_outdoor_light_offset_on") | int)  * 60)}}'
+      outdoor_light_dim_unix_time:
+        friendly_name: 'Unix Time Dim'
+        value_template: '{{(as_timestamp(states.sun.sun.attributes.next_rising) + (states("input_slider.auto_outdoor_light_offset_dim") | int)  * 60)}}'
+      outdoor_light_off_unix_time:
+        friendly_name: 'Unix Time Off'
+        value_template: '{{(as_timestamp(states.sun.sun.attributes.next_rising) - (states("input_slider.auto_outdoor_light_offset_off") | int)  * 60)}}'
+      
+
+  - platform: template
+    sensors:
+      boudoir_current_temperature:
+        value_template: '{{ states.climate.boudoir.attributes.current_temperature }}'
+        friendly_name: 'Boudoir Current Temp'
+      dining_room_current_temperature:
+        value_template: '{{ states.climate.dining_room.attributes.current_temperature }}'
+        friendly_name: Dining Room Current Temp'
+      hunters_room_current_temperature:
+        value_template: '{{ states.climate.hunters_room.attributes.current_temperature }}'
+        friendly_name: 'Hunters Room Current Temp'
+      theas_room_current_temperature:
+        value_template: '{{ states.climate.theas_bedroom.attributes.current_temperature }}'
+        friendly_name: 'Theas Room Current Temp'
+      living_room_current_temperature:
+        value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
+        friendly_name: 'Living Room Current Temp'
+      boudoir_target_temperature:
+        value_template: '{{ states.climate.boudoir.attributes.temperature }}'
+        friendly_name: 'Boudoir Target Temp'
+
+  - platform: mqtt
+    name: Km Per Liter
+    state_topic: bmw/state
+    value_template: '{{ value_json.kmliter }}'
+    
+  - platform: mqtt
+    name: Fuel Left
+    unit_of_measurement: "%"
+    state_topic: bmw/state
+    value_template: '{{ value_json.fuelleft }}'
+    
+  - platform: mqtt
+    name: Fuel Price
+    state_topic: bmw/state
+    value_template: '{{ value_json.fuelprice }}'
+  
+  - platform: mqtt
+    name: Last Drive Duration
+    state_topic: bmw/state
+    value_template: '{{ value_json.lastdd }}'    
+
+  - platform: mqtt
+    name: Top Speed
+    state_topic: bmw/state
+    value_template: '{{ value_json.topspeed }}'
+
+  - platform: mqtt
+    name: Total Km 
+    state_topic: bmw/state
+    value_template: '{{ value_json.totalkm }}'    
+ 
+  - platform: mqtt
+    name: Last Updated
+    state_topic: bmw/state
+    value_template: '{{ value_json.lastupdated }}'
+    
+  - platform: mqtt
+    name: Distance to Empty
+    unit_of_measurement: "Km"
+    state_topic: bmw/state
+    value_template: '{{ value_json.estimatekm }}'
+
+  - platform: rest
+    name: Causeway Critical
+    resource: !secret noc_resource1
+    username: !secret noc_username
+    password: !secret noc_password
+    authentication: basic
+    value_template: '{{ value_json.results[0].status }}'
+    headers:
+      User-Agent: Home Assistant
+      Content-Type: application/json
+
+  - platform: rest
+    name: Causeway Down
+    resource: !secret noc_resource2
+    username: !secret noc_username
+    password: !secret noc_password
+    authentication: basic
+    value_template: '{{ value_json.results[0].status }}'
+    headers:
+      User-Agent: Home Assistant
+      Content-Type: application/json

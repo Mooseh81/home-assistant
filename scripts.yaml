@@ -1,0 +1,11 @@
+bedtime_gary: !include scripts/bedtime_gary.yaml
+notify_update: !include scripts/notify_update.yaml
+low_battery: !include scripts/low_battery.yaml
+restart_ha: !include scripts/restart_ha.yaml
+refresh_devices: !include scripts/refresh_devices.yaml
+car_finder_gary_notify: !include scripts/car_finder_gary_notify.yaml
+driving_gary_start: !include scripts/driving_gary_start.yaml 
+driving_gary_stop:  !include scripts/driving_gary_stop.yaml
+gary_finder: !include scripts/gary_finder.yaml
+motion_shed:  !include scripts/motion_shed.yaml
+almost_home: !include scripts/almost_home.yaml

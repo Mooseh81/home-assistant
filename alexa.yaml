@@ -1,0 +1,40 @@
+intents:
+  WhereAreWeIntent:
+    speech:
+      type: plaintext
+      text: >
+        {%- if is_state('device_tracker.username_gary', 'home') and
+               is_state('device_tracker.ac37434ec0b0', 'home') -%}
+          You are both home. 
+        {%- else -%}
+          Sian is at {{ states("device_tracker.cac37434ec0b0") }} and
+          Gary is at {{ states("device_tracker.username_gary") }}
+        {% endif %}
+  LocateIntent:
+    action:
+      service: notify.Voodooville
+      data:
+        message: Your location has been queried via Alexa.
+    speech:
+      type: plaintext
+      text: >
+        {%- for state in states.device_tracker -%}
+          {%- if state.name.lower() == User.lower() -%}
+            {{ state.name }} is at {{ state.state }}
+          {%- endif -%}
+        {%- else -%}
+          I am sorry. Pootie! I do not know where {{User}} is.
+        {%- endfor -%}
+  ETAGaryIntent:
+    speech:
+      type: plaintext
+      text: >
+        {%- if is_state('input_select.gary_status', 'driving') -%}
+          Gary is driving to {{states("input_select.gary_destination")}} and his estimated time until arrival is {{states("sensor.google_travel_time__driving")}} minutes.
+        {%- else -%}
+          Gary is not in the car. 
+        {% endif %}
+  PlexWatchersIntent:
+    speech:
+      type: plaintext
+      text: There are currently {{ states("sensor.plex") }} users watching plex right now

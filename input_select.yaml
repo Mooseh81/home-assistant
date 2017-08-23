@@ -1,0 +1,19 @@
+gary_status:
+  name: Gary Status
+  options:
+   - driving
+   - standby
+   - sleeping
+
+gary_destination:
+  name: Gary Destination
+  options:
+   - work
+   - home
+   - somewhere
+
+gary_oncall:
+  name: Gary OnCall
+  options:
+   - oncall
+   - not oncall

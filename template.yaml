@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    climate_boudoir_temperature:
+      friendly_name: 'Temperature'
+      unit_of_measurement: '°C'
+      value_template: {{ states.climate.boudoir.attributes.current_temperature }}
