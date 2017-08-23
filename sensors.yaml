@@ -207,3 +207,15 @@
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+
+
+  - platform: rest
+    name: Production Issue
+    resource: !secret noc_resource2
+    username: !secret noc_username
+    password: !secret noc_password
+    authentication: basic
+    value_template: '{{ value_json.results.AlertMessage }}'
+    headers:
+      User-Agent: Home Assistant
+      Content-Type: application/json

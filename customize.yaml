@@ -68,3 +68,6 @@
         icon: mdi:compass
      sensor.dark_sky_apparent_temperature:
         friendly_name: Real Feel
+
+     group.all_automations:
+        hidden: false

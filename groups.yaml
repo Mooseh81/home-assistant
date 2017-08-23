@@ -7,12 +7,14 @@ default_view:
   - group.household_card
   - group.downloads_card
   name: default_view
+
 surveillance:
   name: surveillance
   view: true
   entities:
   - group.shed_card
   - camera.mjpeg_camera
+
 environment:
   name: environment
   view: true
@@ -25,6 +27,7 @@ environment:
   - group.hunters_room_card
   - group.theas_room_card
   - group.outdoor_timer_light_card
+
 Family:
   name: family
   view: true
@@ -32,6 +35,7 @@ Family:
   - group.gary_card
   - group.household_card
   - group.BMWcar_card
+
 Work:
   name: work
   view: true
@@ -41,6 +45,7 @@ Work:
   - input_select.gary_oncall
   - automation.causeway_issues
   - automation.causeway_down
+
 media:
   name: media
   view: true
@@ -59,6 +64,7 @@ media:
   - group.playstation4_card
   - media_player.playstation_4
   - media_player.voodoo_tv_ue49ku6400
+
 Sabnzbd:
   view: true
   name: Sabnzbd
@@ -69,16 +75,19 @@ Sabnzbd:
   - sensor.sabnzbd_left
   - sensor.sabnzbd_disk
   - sensor.sabnzbd_disk_free
+
 ha_status:
   name: HA Controls
   view: true
   entities:
   - group.speedtest_card
+
 Automations:
   name: Automations
   view: true
   entities:
-  - - group.all_automations
+  - group.all_automations
+
 Downloads_card:
 - sensor.sabnzbd_status
 - sensor.sabnzbd_speed
@@ -86,10 +95,12 @@ Downloads_card:
 - sensor.sabnzbd_left
 - sensor.sabnzbd_disk
 - sensor.sabnzbd_disk_free
+
 Sonarr_card:
 - sensor.sonarr_queue
 - sensor.sonarr_upcoming
 - sensor.sonarr_wanted
+
 Gary_card:
 - script.car_finder_gary_notify
 - input_select.gary_status
@@ -101,29 +112,36 @@ Gary_card:
 - sensor.gary_battery
 - script.almost_home
 - sensor.google_geocode
+
 Boudoir_card:
 - climate.boudoir
 - sensor.boudoir_current_temperature
+
 Living Room_card:
 - climate.living_room
 - sensor.living_room_current_temperature
 - light.livingroomleft
 - light.livingroomright
+
 Hunters Room_card:
 - climate.hunters_room
 - sensor.hunters_room_current_temperature
+
 Dining Room_card:
 - climate.dining_room
 - sensor.dining_room_current_temperature
+
 Theas Room_card:
 - climate.theas_bedroom
 - sensor.theas_room_current_temperature
+
 heatmiser_card:
 - climate.boudoir
 - climate.dining_room
 - climate.hunters_room
 - climate.living_room
 - climate.theas_bedroom
+
 shed_card:
 - camera.shed
 - switch.shed_exposure_lock
@@ -139,10 +157,12 @@ shed_card:
 - sensor.shed_battery_temperature
 - sensor.shed_light_level
 - sensor.shed_motion
+
 Speedtest_card:
 - sensor.speedtest_ping
 - sensor.speedtest_download
 - sensor.speedtest_upload
+
 Weather_card:
 - sensor.date__time
 - sensor.dark_sky_icon
@@ -161,15 +181,19 @@ Weather_card:
 - sensor.dark_sky_nearest_storm_distance
 - sensor.dark_sky_wind_bearing
 - sensor.dark_sky_wind_speed
+
 Temperature_card:
 - sensor.dark_sky_temperature
 - sensor.dark_sky_apparent_temperature
+
 Automatic Lights Outside Dummy:
   name: AutomatiC Lights Outside Dummy
+
 Automatic Lights Outside:
   name: Automatic Lights Outside
   entities:
   - light.front_walkway_level
+
 Outdoor Timer Light_card:
   name: Outdoor Lights Timer Settings
   control: hidden
@@ -183,9 +207,11 @@ Outdoor Timer Light_card:
   - sensor.auto_outdoor_light_dim
   - input_slider.auto_outdoor_light_offset_off
   - sensor.auto_outdoor_light_stop
+
 Playstation4_card:
   - sensor.current_game
   - switch.playstation4
+
 BMWcar_card:
   name: BMW
   entities:
@@ -197,6 +223,7 @@ BMWcar_card:
     - sensor.last_drive_duration
     - sensor.top_speed
     - sensor.total_km
+
 Household_card:
 - device_tracker.username_gary
 - sensor.google_geocode
