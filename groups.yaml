@@ -45,9 +45,9 @@ media:
   name: media
   view: true
   entities:
-  - group.devices
-  - group.downloads
-  - group.sonarr
+  - group.devices_card
+  - group.downloads_card
+  - group.sonarr_card
   - sensor.radarr
   - sensor.plex
   - sensor.sonarr_commands
@@ -56,7 +56,7 @@ media:
   - sensor.sonarr_wanted
   - media_player.tv_ue49ku6400
   - media_player.spotify
-  - group.playstation4
+  - group.playstation4_card
   - media_player.playstation_4
   - media_player.voodoo_tv_ue49ku6400
 Sabnzbd:
@@ -73,7 +73,7 @@ ha_status:
   name: HA Controls
   view: true
   entities:
-  - group.speedtest
+  - group.speedtest_card
 Automations:
   name: Automations
   view: true
