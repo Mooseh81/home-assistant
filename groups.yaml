@@ -1,6 +1,7 @@
 default_view:
   view: true
   entities:
+  - alarm_control_panel.ha_alarm
   - camera.shed
   - automation.shed_motion
   - group.household
@@ -210,8 +211,3 @@ BMWcar:
     - sensor.last_drive_duration
     - sensor.top_speed
     - sensor.total_km
-alarm_control:
-    name: Alarm Control
-    view: true
-    entities:
-      - alarm_control_panel.ha_alarm
