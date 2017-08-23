@@ -1,0 +1,55 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Nobody is home. Turning everything off."
+- service: switch.turn_off
+  data:
+    entity_id: group.bedroom
+- service: switch.turn_off
+  data:
+    entity_id: group.kitchen
+- service: switch.turn_off
+  data:
+    entity_id: group.living_room
+- service: input_select.select_option
+  data:
+    entity_id: input_select.hyperion_effect
+    option: "Off"
+- service: switch.turn_off
+  data:
+    entity_id: switch.tv_power
+- service: switch.turn_off
+  data:
+    entity_id: switch.livingroom_desk_outlet
+- service: light.turn_off
+  data:
+    entity_id: light.br_lifx
+    transition: 2
+- service: input_select.select_option
+  data:
+    entity_id: input_select.hyperion_effect
+    option: "Off"
+- service: light.turn_off
+  data:
+    entity_id: light.lr_door_color_lifx
+    transition: 2
+- service: light.turn_off
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    transition: 2
+- service: light.turn_off
+  data:
+    entity_id: light.jar_led
+- service: light.turn_off
+  data:
+    entity_id: light.br_node_led
+- service: light.turn_off
+  data:
+    entity_id: light.jar_led
+- service: switch.turn_off
+  data:
+    entity_id: switch.hyperion
+- service: notify.notify
+  data:
+    message: "Nobody is home. Turning everything off."

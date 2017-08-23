@@ -1,0 +1,23 @@
+sequence:
+- delay:
+    minutes: 2
+- service: light.turn_off
+  data:
+    entity_id: light.lr_door_color_lifx
+    transition: 2
+- service: light.turn_off
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    transition: 2
+- service: light.turn_off
+  data:
+    entity_id: light.br_node_led
+- service: light.turn_off
+  data:
+    entity_id: light.jar_led
+- service: light.turn_off
+  data:
+    entity_id: light.bathroom_led
+- service: switch.turn_off
+  data:
+    entity_id: switch.wemo_insight_5050_led

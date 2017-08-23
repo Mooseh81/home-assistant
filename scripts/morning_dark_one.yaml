@@ -1,0 +1,38 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: Good Morning! The sun hasn't risen yet so lets turning some lights on. 
+- service: notify.notify
+  data:
+    message: "Good Morning! The sun isn't up yet so lets turn on some lights. Someone is still sleeping so we'll keep it on the DL"
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 80
+    color_temp: 233
+    transition: 10
+    rgb_color: [255,255,255]
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 80
+    color_temp: 233
+    transition: 10
+    rgb_color: [255,255,255]
+- delay:
+    minutes: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 255
+    color_temp: 233
+    transition: 10
+    rgb_color: [255,255,255]
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 255
+    color_temp: 233
+    transition: 10
+    rgb_color: [255,255,255]

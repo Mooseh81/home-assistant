@@ -1,0 +1,56 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Ben is in the car!"
+- service: light.turn_on
+  data:
+    entity_id: light.jar_led
+    rgb_color: [0,255,0]
+- service: light.turn_on
+  data:
+    entity_id: light.br_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [0,255,0]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [0,255,0]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [0,255,0]
+    transition: 2
+- delay:
+    seconds: 5
+- service: light.turn_on
+  data:
+    entity_id: light.br_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: notify.notify
+  data:
+    message: 'Ben is in the car and his estimated arrival time is {{states("sensor.eta_ben")}}.'

@@ -1,0 +1,25 @@
+sequence:
+- service: light.toggle
+  data: 
+    entity_id: light.livingroomleft
+- delay:
+      seconds: 1
+- service: light.toggle
+  data: 
+    entity_id: light.livingroomleft
+- delay:
+      seconds: 1
+- service: light.toggle
+  data: 
+    entity_id: light.livingroomright
+- delay:
+      seconds: 1
+- service: light.toggle
+  data: 
+    entity_id: light.livingroomright
+- delay:
+      seconds: 1
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Gary is almost HOME!!!"

@@ -1,0 +1,11 @@
+sequence:
+- service: script.turn_off
+  data:
+    entity_id: script.motion_bathroom_timer
+- service: light.turn_on
+  data:
+    entity_id: light.bathroom_led
+    rgb_color: [255,0,0]
+- service: script.turn_on
+  data:
+    entity_id: script.motion_bathroom_timer

@@ -1,0 +1,32 @@
+sequence:
+- service: script.turn_off
+  data:
+    entity_id: script.timer_lr
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 75
+    color_temp: 233
+    rgb_color: [255,0,0]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 75
+    color_temp: 233
+    rgb_color: [255,0,0]
+    transition: 2
+#- service: switch.turn_on
+#  data:
+#    entity_id: switch.wemo_insight_5050_led
+- service: light.turn_on
+  data:
+    entity_id: light.jar_led
+    rgb_color: [255,0,0]
+- service: light.turn_on
+  data:
+    entity_id: light.bathroom_led
+    rgb_color: [255,25,25]
+- service: script.turn_on
+  data:
+    entity_id: script.timer_lr

@@ -1,0 +1,34 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Welcome! Turning everything on."
+- service: alarm_control_panel.alarm_disarm
+- service: light.turn_on
+  data:
+    entity_id: light.br_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_door_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    brightness: 255
+    color_temp: 233
+    rgb_color: [255,255,255]
+    transition: 2
+- service: light.turn_on
+  data:
+    entity_id: light.jar_led
+    rgb_color: [255,255,255]
+- service: notify.notify
+  data:
+    message: "Welcome. Turning lights on!"

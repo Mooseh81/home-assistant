@@ -1,0 +1,11 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Ben is not in the car!"
+- service: light.turn_off
+  data:
+    entity_id: light.jar_led
+- service: notify.notify
+  data:
+    message: 'Ben is not in the car.'

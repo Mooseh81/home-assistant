@@ -1,0 +1,30 @@
+sequence:
+- service: script.turn_off
+  data:
+    entity_id: script.party_lights
+- service: script.turn_off
+  data:
+    entity_id: script.party_lights_1
+- service: script.turn_off
+  data:
+    entity_id: script.party_lights_2
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: UPDATE
+    message: "The party is over. :("
+- service: notify.notify
+  data:
+    message: "The party is over. :("
+- service: media_player.turn_off
+  data:
+    entity_id: media_player.bcrcc
+- service: media_player.turn_off
+  data:
+    entity_id: media_player.osmc
+- service: input_select.select_option
+  data:
+    entity_id: input_select.hyperion_effect
+    option: "Off"
+- service: switch.turn_off
+  data:
+    entity_id: switch.livingroom_desk_outlet

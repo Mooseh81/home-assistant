@@ -1,0 +1,13 @@
+sequence:
+- service: notify.Voodooville
+  data:
+    message: "The BMW is located at https://maps.google.com/maps?q={{states.device_tracker.bmw.attributes.latitude}},{{ states.device_tracker.bmw.attributes.longitude}}  GPS Accuracy: {{states.device_tracker.bmw.attributes.gps_accuracy}} meters "
+
+- service: notify.Voodooville
+  data:
+    title: Send location
+    message: Location updated.
+    data:
+      location:
+        latitude: "{{states.device_tracker.bmw.attributes.latitude}}"
+        longitude: "{{ states.device_tracker.bmw.attributes.longitude}}"

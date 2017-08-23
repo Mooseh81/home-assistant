@@ -1,0 +1,9 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Gary is not in the car!"
+- service: notify.Voodooville
+  data:
+    message: 'Gary is not in the car.'
+- service: script.car_finder_gary_notify

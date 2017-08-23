@@ -1,0 +1,57 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: "Cailin"
+    message: "is going to bed"
+    entity_id: device_tracker.cailin6p_cailin6p
+- service: switch.turn_off
+  data:
+    entity_id: switch.bedroom_lamp
+- service: light.turn_off
+  data:
+    entity_id: light.br_lifx
+    transition: 30
+- service: light.turn_off
+  data:
+    entity_id: light.lr_door_color_lifx
+    transition: 30
+- service: light.turn_off
+  data:
+    entity_id: light.lr_fireplace_color_lifx
+    transition: 30
+- service: switch.turn_on
+  data:
+    entity_id: switch.bedroom_fan
+- service: switch.turn_off
+  data:
+    entity_id: switch.livingroom_wall_outlet
+- service: switch.turn_off
+  data:
+    entity_id: switch.livingroom_desk_outlet
+- service: switch.turn_off
+  data:
+    entity_id: switch.wemo_insight_5050_led
+- service: input_select.select_option
+  data:
+    entity_id: input_select.hyperion_effect
+    option: "Off"
+- service: switch.turn_off
+  data:
+    entity_id: switch.hyperion
+- service: light.turn_off
+  data:
+    entity_id: light.rp2
+- service: switch.turn_off
+  data:
+    entity_id: switch.tv_power
+- service: light.turn_off
+  data:
+    entity_id: light.jar_led
+- delay:
+    seconds: 15
+- service: light.turn_off
+  data:
+    entity_id: light.br_node_led
+- service: notify.notify
+  data:
+    message: "Cailin is going to bed!"

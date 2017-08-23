@@ -1,0 +1,6 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: Lost Phone
+    message: Ringing Cailin's Phone
+- service: shell_command.cr_finder

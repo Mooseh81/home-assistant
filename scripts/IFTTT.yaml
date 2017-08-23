@@ -1,0 +1,4 @@
+sequence:
+- service: ifttt.trigger
+  data:
+    event: drankwater

@@ -1,0 +1,28 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: UPDATE
+    message: "IT'S PARTY TIME!!"
+- service: notify.notify
+  data:
+    message: "IT'S PARTY TIME!!"
+- service: switch.turn_off
+  data:
+    entity_id: group.brawler
+- service: script.all_off
+- service: shell_command.party_video
+- service: switch.turn_on
+  data:
+    entity_id: switch.hyperion
+- delay:
+    seconds: 10
+- service: script.turn_on
+  data:
+    entity_id: script.party_lights_1
+- service: switch.turn_on
+  data:
+    entity_id: switch.livingroom_desk_outlet
+#- service: input_select.select_option
+#  data:
+#    entity_id: input_select.hyperion_effect
+#    option: Color Traces
