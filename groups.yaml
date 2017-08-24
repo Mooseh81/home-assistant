@@ -89,81 +89,105 @@ Automations:
   - group.all_automations
 
 Downloads_card:
-- sensor.sabnzbd_status
-- sensor.sabnzbd_speed
-- sensor.sabnzbd_queue
-- sensor.sabnzbd_left
-- sensor.sabnzbd_disk
-- sensor.sabnzbd_disk_free
+  name: Downloads
+  entities:
+  - sensor.sabnzbd_status
+  - sensor.sabnzbd_speed
+  - sensor.sabnzbd_queue
+  - sensor.sabnzbd_left
+  - sensor.sabnzbd_disk
+  - sensor.sabnzbd_disk_free
 
 Sonarr_card:
-- sensor.sonarr_queue
-- sensor.sonarr_upcoming
-- sensor.sonarr_wanted
+  name: Sonarr
+  entities:
+  - sensor.sonarr_queue
+  - sensor.sonarr_upcoming
+  - sensor.sonarr_wanted
 
 Gary_card:
-- script.car_finder_gary_notify
-- input_select.gary_status
-- input_select.gary_destination
-- sensor.google_travel_time__driving
-- sensor.car_driving_gary
-- sensor.destination_gary
-- sensor.eta_gary
-- sensor.gary_battery
-- script.almost_home
-- sensor.google_geocode
+  name: Gary
+  entities:
+  - script.car_finder_gary_notify
+  - input_select.gary_status
+  - input_select.gary_destination
+  - sensor.google_travel_time__driving
+  - sensor.car_driving_gary
+  - sensor.destination_gary
+  - sensor.eta_gary
+  - sensor.gary_battery
+  - script.almost_home
+  - sensor.google_geocode
 
 Boudoir_card:
-- climate.boudoir
-- sensor.boudoir_current_temperature
+  name: Boudoir
+  entities:
+  - climate.boudoir
+  - sensor.boudoir_current_temperature
 
 Living Room_card:
-- climate.living_room
-- sensor.living_room_current_temperature
-- light.livingroomleft
-- light.livingroomright
+  name: Living Room
+  entities:
+  - climate.living_room
+  - sensor.living_room_current_temperature
+  - light.livingroomleft
+  - light.livingroomright
 
 Hunters Room_card:
-- climate.hunters_room
-- sensor.hunters_room_current_temperature
+  name: Hunters Room
+  entities:
+  - climate.hunters_room
+  - sensor.hunters_room_current_temperature
 
 Dining Room_card:
-- climate.dining_room
-- sensor.dining_room_current_temperature
+  name: Dining Room
+  entities:
+  - climate.dining_room
+  - sensor.dining_room_current_temperature
 
 Theas Room_card:
-- climate.theas_bedroom
-- sensor.theas_room_current_temperature
+  name: Theas Room
+  entities:
+  - climate.theas_bedroom
+  - sensor.theas_room_current_temperature
 
 heatmiser_card:
-- climate.boudoir
-- climate.dining_room
-- climate.hunters_room
-- climate.living_room
-- climate.theas_bedroom
+  name: Heating
+  entities:
+  - climate.boudoir
+  - climate.dining_room
+  - climate.hunters_room
+  - climate.living_room
+  - climate.theas_bedroom
 
 shed_card:
-- camera.shed
-- switch.shed_exposure_lock
-- switch.shed_focus
-- switch.shed_frontfacing_camera
-- switch.shed_gps_active
-- switch.shed_night_vision
-- switch.shed_overlay
-- switch.shed_torch
-- switch.shed_video_recording
-- switch.shed_white_balance_lock
-- sensor.shed_battery_level
-- sensor.shed_battery_temperature
-- sensor.shed_light_level
-- sensor.shed_motion
+  name: Shed
+  entities:
+  - camera.shed
+  - switch.shed_exposure_lock
+  - switch.shed_focus
+  - switch.shed_frontfacing_camera
+  - switch.shed_gps_active
+  - switch.shed_night_vision
+  - switch.shed_overlay
+  - switch.shed_torch
+  - switch.shed_video_recording
+  - switch.shed_white_balance_lock
+  - sensor.shed_battery_level
+  - sensor.shed_battery_temperature
+  - sensor.shed_light_level
+  - sensor.shed_motion
 
 Speedtest_card:
-- sensor.speedtest_ping
-- sensor.speedtest_download
-- sensor.speedtest_upload
+  name: Speedtest
+  entities:
+  - sensor.speedtest_ping
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
 
 Weather_card:
+  name: Weather
+  entities:
 - sensor.date__time
 - sensor.dark_sky_icon
 - sensor.dark_sky_condition
@@ -183,8 +207,10 @@ Weather_card:
 - sensor.dark_sky_wind_speed
 
 Temperature_card:
-- sensor.dark_sky_temperature
-- sensor.dark_sky_apparent_temperature
+  name: Temperature
+  entities:
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_apparent_temperature
 
 Automatic Lights Outside Dummy:
   name: AutomatiC Lights Outside Dummy
@@ -209,6 +235,8 @@ Outdoor Timer Light_card:
   - sensor.auto_outdoor_light_stop
 
 Playstation4_card:
+  name: Playstation
+  entities:
   - sensor.current_game
   - switch.playstation4
 
@@ -225,6 +253,8 @@ BMWcar_card:
     - sensor.total_km
 
 Household_card:
-- device_tracker.username_gary
-- sensor.google_geocode
-- device_tracker.ac37434ec0b0
+  name: Household
+  entities:
+    - device_tracker.username_gary
+    - sensor.google_geocode
+    - device_tracker.ac37434ec0b0
